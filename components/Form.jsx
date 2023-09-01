@@ -1,4 +1,5 @@
 'use client'
+
 import { useState } from "react";
 
 let nextId = 0;
@@ -22,22 +23,25 @@ const Form = () => {
         />
         <button>Add</button>
       </form>
-      <ul>
+      {todo.length == 0 ? (
+          'You have no tasks to do... Add some tasks'
+        ) : (
+          <ul>
         {todo.map(todo => (
-            <li key={todo.id}>
-                <button onClick={() => { 
-                    setTodo(todo.filter(item => item.id !== todo.id))
-                }}>
-                    delete
-                </button>
-                
-                {todo.name}
-            </li>
+          <li key={todo.id}>
+            <button onClick={() => { 
+              setTodo(prevTodo => prevTodo.filter(item => item.id !== todo.id));
+            }}>
+              delete
+            </button>
+            {todo.name}
+          </li>
         ))}
       </ul>
+        )}
+      
     </div>
   );
 }
 
 export default Form;
-
