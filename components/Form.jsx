@@ -19,21 +19,25 @@ const Form = () => {
           name="todo"
           value={input}
           onChange={(e) => setInput(e.target.value)}
+          className="search_input"
           required
         />
-        <button>Add</button>
+        <button className="add_btn">Add</button>
       </form>
-      {todo.length == 0 ? (
-          'You have no tasks to do... Add some tasks'
+      {todo.length == 0 ? ( 
+        <div className="desc">
+          You have no tasks to do... Add some tasks
+        </div>
         ) : (
           <ul>
         {todo.map(todo => (
-          <li key={todo.id}>
-            <button onClick={() => { 
+          <li className="desc" key={todo.id}>
+            <button className="delete_btn" onClick={() => { 
               setTodo(prevTodo => prevTodo.filter(item => item.id !== todo.id));
             }}>
-              delete
+              Done
             </button>
+            &emsp;
             {todo.name}
           </li>
         ))}

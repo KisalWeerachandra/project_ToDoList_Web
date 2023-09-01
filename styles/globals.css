@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+  Note: The styles for this gradient grid background is heavily inspired by the creator of this amazing site (https://dub.sh) – all credits go to them! 
+*/
+
+.main {
+  width: 100vw;
+  min-height: 100vh;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  padding: 120px 24px 160px 24px;
+  pointer-events: none;
+}
+
+.main:before {
+  background: radial-gradient(circle, rgba(2, 0, 36, 0) 0, #09a0bb 100%);
+  position: absolute;
+  content: "";
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+
+
+@media screen and (max-width: 640px) {
+  .main {
+    padding: 0;
+  }
+}
+
+/* Tailwind Styles */
+
+.app {
+  @apply relative z-10 flex justify-center items-center flex-col max-w-7xl mx-auto sm:px-16 px-6;
+}
+
+.delete_btn {
+  @apply rounded-full border border-black bg-emerald-600 py-1.5 px-5 text-white transition-all hover:bg-white hover:text-black text-center text-sm  gap-8;
+} 
+.add_btn {
+  @apply rounded-lg border border-black bg-blue-700 py-1.5 px-44 text-white transition-all hover:bg-white hover:text-black text-center text-sm  flex items-center justify-center ;
+} 
+
+.head_text {
+  @apply text-center mt-5 mb-5 text-5xl font-extrabold leading-[1.15] text-black sm:text-6xl;
+}
+
+.desc {
+  @apply mt-5 text-lg text-gray-600 sm:text-xl max-w-2xl;
+}
+
+.search_input {
+  @apply block w-full rounded-md border border-gray-200 bg-white mb-5 py-2.5 pl-5 pr-12 text-sm shadow-lg font-medium focus:border-black focus:outline-none focus:ring-0;
+}
+
+
+
+
